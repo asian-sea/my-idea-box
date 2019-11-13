@@ -1,11 +1,26 @@
 <!DOCTYPE html>
+<link href="/css/index.css" th:href="@{/css/index.css}" rel="stylesheet">
 <html xmlns:th="https://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8"/>
         <title>MY IDEA BOX - All Collection Box</title>
     </head>
     <body>
-        <div id="react"></div>
-        <p th:text="${msg}"></p>
+        <header>
+            <button class="add">+</button>
+        </header>
+        <main>
+            <div class="items">
+                <div class="item" th:each="col: ${list}" th:object="${col}">
+                    <div class="contents">
+                        <div class="img">
+                            <img th:src="'/img/' + *{imagePath}" />
+                        </div>
+                        <b><span th:text="*{title}"></span></b></br>
+                        <span th:text="*{text}"></span>
+                    </div>
+                </div>
+            </div>
+        </main>
     </body>
 </html>

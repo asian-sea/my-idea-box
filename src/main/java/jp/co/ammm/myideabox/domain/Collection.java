@@ -1,7 +1,16 @@
 package jp.co.ammm.myideabox.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="collections")
 public class Collection {
-	private int id;
+	@Id
+	@Column(name="id")
+	private Integer id;
 	private String imagePath;
 	private String title;
 	private String text;
