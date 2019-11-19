@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<link href="/css/index.css" th:href="@{/css/index.css}" rel="stylesheet">
+<html xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>MY IDEA BOX - Add Item</title>
+    </head>
+    <body>
+        <section id="modal" class="hidden">
+            <button id="close">×</button>
+            <div class="newItem">
+                <h3>Add New Item</h3>
+                <form th:action="@{/myideabox/add}" th:object="${form}" th:method="post">
+                    <div class="form-group">
+                        <label>画像</label>
+                        <input type="file" name="imagePath" />
+                    </div>
+                    <div class="form-group">
+                        <label>タイトル</label>
+                        <input type="text" name="title" />
+                    </div>
+                    <div class="form-group">
+                        <label>テキスト</label>
+                        <textarea name="text" rows="4" cols="40">画像の説明を入力してください。</textarea>
+                    </div>
+                    <button class="addButton" type="submit">追加</button>
+                </form>
+            </div>
+        </section>
+    </body>
+</html>

@@ -7,20 +7,71 @@
     </head>
     <body>
         <header>
-            <button class="add">+</button>
         </header>
         <main>
             <div class="items">
+                <button id="open-add">+</button>
+                <div id="mask-add" class="hidden"></div>
+
+                <!-- Add Modal Start -->
+                <section id="modal-add" class="hidden">
+                    <button id="close-add">×</button>
+                    <div class="newItem">
+                        <h3>Add New Item</h3>
+                        <form th:action="@{/myideabox/add}" th:object="${form}" th:method="post">
+                            <div class="form-group">
+                                <label>画像</label>
+                                <input type="file" name="imagePath" />
+                            </div>
+                            <div class="form-group">
+                                <label>タイトル</label>
+                                <input type="text" name="title" />
+                            </div>
+                            <div class="form-group">
+                                <label>テキスト</label>
+                                <textarea name="text" rows="4" cols="40">画像の説明を入力してください。</textarea>
+                            </div>
+                            <button class="addButton" type="submit">追加</button>
+                        </form>
+                    </div>
+                </section>
+                <!-- --- -->
+
+
                 <div class="item" th:each="col: ${list}" th:object="${col}">
-                    <div class="contents">
+                    <div class="contents-wrap">
+                        <div class="contents">
                         <div class="img">
                             <img th:src="'/img/' + *{imagePath}" />
                         </div>
                         <b><span th:text="*{title}"></span></b></br>
                         <span th:text="*{text}"></span>
                     </div>
+                        <div class="item-menu">
+                            <form>
+                                <button th:id="'show-open' + *{id}" onclick="open">more</button>
+                            </form>
+                            <form th:action="@{/myideabox/delete/{id}(id=*{id})}">
+                                <button type="submit">削除</button>
+                                <script>
+                                    function check() {
+                                        return confirm('本当に削除しますか？');
+                                    }
+                                </script>
+                            </form>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Show Modal Start -->
+                <div id="show-mask" class="hidden"></div>
+                <section id='show-modal' class="hidden">
+                    <button id="show-close">×</button>
+                    <span th:text="*{title}"></span>
+                </section> 
+                <!-- --- -->
             </div>
         </main>
+        <script src="/js/modal.js"></script>
+        </html>
     </body>
-</html>

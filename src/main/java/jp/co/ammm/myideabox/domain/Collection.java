@@ -2,51 +2,26 @@ package jp.co.ammm.myideabox.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Data;
+
+
+@Data
 @Entity
 @Table(name="collections")
 public class Collection {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private Integer id;
+	@Column(name="image_path")
 	private String imagePath;
+	@Column(name="title")
 	private String title;
+	@Column(name="text")
 	private String text;
-	
-	//constructor
-	public Collection() {}
-	public Collection(int id, String imagePath, String title, String text) {
-		this.id = id;
-		this.imagePath = imagePath;
-		this.title = title;
-		this.text = text;
-	}
-
-	// getter/setter
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getImagePath() {
-		return imagePath;
-	}
-	public void setSrc(String imagePath) {
-		this.imagePath = imagePath;
-	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public String getText() {
-		return text;
-	}
-	public void setText(String text) {
-		this.text = text;
-	}
 }
