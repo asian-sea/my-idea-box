@@ -1,0 +1,26 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x000000010d7c8736, pid=303, tid=19203
+#
+# JRE version: OpenJDK Runtime Environment (11.0.5+10) (build 11.0.5+10)
+# Java VM: OpenJDK 64-Bit Server VM (11.0.5+10, mixed mode, tiered, compressed oops, g1 gc, bsd-amd64)
+# Problematic frame:
+# C  [libjimage.dylib+0x1736]  _ZN12ImageStrings4findEP6EndianPKcPij+0x54
+#
+# No core dump will be written. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   https://github.com/AdoptOpenJDK/openjdk-build/issues
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -agentlib:jdwp=transport=dt_socket,server=n,suspend=y,address=localhost:58548 -Dfile.encoding=UTF-8 jp.co.ammm.myideabox.DemoApplication
+
+Host: MacBookAir8,1 x86_64 1600 MHz, 4 cores, 16G, Darwin 19.0.0
+Time: Wed Dec 11 15:43:32 2019 JST elapsed time: 176 seconds (0d 0h 2m 56s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007fd86985d800):  JavaThread "Signal Dispatcher"

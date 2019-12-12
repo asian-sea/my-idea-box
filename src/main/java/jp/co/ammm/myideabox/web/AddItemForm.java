@@ -1,7 +1,5 @@
 package jp.co.ammm.myideabox.web;
 
-import javax.persistence.Column;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,9 +7,6 @@ import lombok.Setter;
 @Setter
 
 public class AddItemForm {
-	private Integer id;
-	@Column(name="image_path")
-	private String imagePath;
 	private String title;
 	private String text;
 }

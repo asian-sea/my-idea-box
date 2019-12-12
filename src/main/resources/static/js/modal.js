@@ -22,7 +22,7 @@
         });
 
         //show
-        const showOpen = document.getElementById('show-open1'); //id=show-openにidを付与
+        const showOpen = document.getElementById('show-open'); //id=show-openにidを付与
         const showClose = document.getElementById('show-close');
         const showModal = document.getElementById('show-modal');
         const showMask = document.getElementById('show-mask');
