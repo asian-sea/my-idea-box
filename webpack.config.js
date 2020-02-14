@@ -1,7 +1,7 @@
 var path = require('path');
 
 module.exports = {
-    entity: './src/main/app/src/App.tsx',
+    entity: './src/main/app/src/App.js',
     devtool: 'sourcemaps',
     cache: true,
     mode: 'development',

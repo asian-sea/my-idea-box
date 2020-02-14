@@ -9,10 +9,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import lombok.Data;
+import lombok.ToString;
 
 @Entity
 @Data
+@ToString(exclude = {"collection"})
 @Table(name="files")
 public class File {
 
@@ -24,6 +28,7 @@ public class File {
 	private String fileName;
 
 	@OneToOne
+	@JsonBackReference("file")
 	@JoinColumn(name = "id")
 	private Collection collection;
 

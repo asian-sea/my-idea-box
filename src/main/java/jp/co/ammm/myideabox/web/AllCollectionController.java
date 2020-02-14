@@ -34,7 +34,7 @@ public class AllCollectionController {
 	public String index(Model model) {
 		List<Collection> list = collectionService.showCollections();
 		model.addAttribute("list", list);
-		return "main";
+		return "index";
 	}
 
 	/* Add Item */
@@ -46,7 +46,7 @@ public class AllCollectionController {
 		if (!upfile.isEmpty()) {
 			try {
 				String filename = upfile.getOriginalFilename();
-				Files.copy(upfile.getInputStream(), Paths.get("src/main/resources/static/img/", filename));
+				Files.copy(upfile.getInputStream(), Paths.get("src/main/app/public/img/", filename));
 				file.setFileName(filename);
 				fileService.save(file);
 			} catch (IOException | RuntimeException e) {
@@ -60,7 +60,7 @@ public class AllCollectionController {
 		collection.setFile(file);
 		collection.setStatus(1);
 		collectionService.addCollection(collection);
-		return "redirect:/myideabox/collections";
+		return "redirect:/myideabox/main";
 	}
 
 	// /* Show Item Detail */
@@ -75,6 +75,6 @@ public class AllCollectionController {
 	@RequestMapping("/delete/{id}")
 	public String delete(@PathVariable Integer id) {
 		collectionService.delete(id);
-		return "redirect:/myideabox/collections";
+		return "redirect:/myideabox/main";
 	}
 }

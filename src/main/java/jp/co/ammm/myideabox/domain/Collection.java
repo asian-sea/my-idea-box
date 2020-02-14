@@ -8,11 +8,14 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.Data;
+import lombok.ToString;
 
 @Entity
 @Data
+@ToString(exclude = {"file"})
 @Table(name="collections")
 public class Collection {
 
@@ -29,5 +32,6 @@ public class Collection {
 	private Integer status;
 
 	@OneToOne(mappedBy = "collection")
+	@JsonManagedReference("Unit")
 	private File file;
 }
